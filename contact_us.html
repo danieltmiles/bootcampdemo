@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us - Resistance Bootcamp 2.0</title>
+
+  <!-- Fonts (Oswald headings, Quattrocento body) -->
+  <style>
+    @font-face {
+      font-family: Oswald;
+      font-style: normal;
+      font-weight: 300;
+      font-display: fallback;
+      src: url('./assets/fonts/oswald-normal-300.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: Oswald;
+      font-style: normal;
+      font-weight: 400;
+      font-display: fallback;
+      src: url('./assets/fonts/oswald-normal-400.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: Oswald;
+      font-style: normal;
+      font-weight: 700;
+      font-display: fallback;
+      src: url('./assets/fonts/oswald-normal-700.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: Quattrocento;
+      font-style: normal;
+      font-weight: 400;
+      font-display: fallback;
+      src: url('./assets/fonts/quattrocento-normal-400.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: Quattrocento;
+      font-style: normal;
+      font-weight: 700;
+      font-display: fallback;
+      src: url('./assets/fonts/quattrocento-normal-700.woff2') format('woff2');
+    }
+  </style>
+
+  <!-- WordPress theme + plugin styles -->
+  <link rel="stylesheet" href="./assets/styles.css" media="all">
+  <link rel="stylesheet" href="./assets/style.min.css" media="all">
+  <link rel="stylesheet" href="./assets/latest.css" media="all">
+
+  <!-- WordPress design tokens and global styles -->
+  <style id="global-styles-inline-css">
+    :root {
+      --wp--preset--color--black: #000000;
+      --wp--preset--color--white: #ffffff;
+      --wp--preset--color--primary: #ffffff;
+      --wp--preset--color--secondary: #f5f5f5;
+      --wp--preset--color--accent: #000080;
+      --wp--preset--color--primary-text: #000000;
+      --wp--preset--color--secondary-text: #000000;
+      --wp--preset--color--accent-text: #ffffff;
+      --wp--preset--font-family--heading: Oswald;
+      --wp--preset--font-family--body: Quattrocento;
+      --wp--preset--font-size--small: 13px;
+      --wp--preset--font-size--medium: clamp(14px, 0.875rem + ((1vw - 3.2px) * 0.588), 20px);
+      --wp--preset--font-size--large: clamp(22.041px, 1.378rem + ((1vw - 3.2px) * 1.369), 36px);
+      --wp--preset--font-size--x-large: clamp(25.014px, 1.563rem + ((1vw - 3.2px) * 1.665), 42px);
+      --wp--preset--font-size--xx-large: clamp(2.65rem, 2.65rem + ((1vw - 0.2rem) * 1.333), 3.5rem);
+      --wp--preset--font-size--normal: 16px;
+      --wp--preset--spacing--20: 10px;
+      --wp--preset--spacing--30: 20px;
+      --wp--preset--spacing--40: 30px;
+      --wp--preset--spacing--50: clamp(30px, 5vw, 50px);
+      --wp--style--global--content-size: 1340px;
+      --wp--style--global--wide-size: 1340px;
+      --wp--style--block-gap: 0;
+      --wp--style--root--padding-top: 0;
+      --wp--style--root--padding-right: var(--wp--preset--spacing--50);
+      --wp--style--root--padding-bottom: 0;
+      --wp--style--root--padding-left: var(--wp--preset--spacing--50);
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--wp--preset--color--primary);
+      color: var(--wp--preset--color--primary-text);
+      font-family: var(--wp--preset--font-family--body);
+      font-size: var(--wp--preset--font-size--medium);
+      font-weight: 400;
+      line-height: 1.55;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--wp--preset--color--accent);
+      font-family: var(--wp--preset--font-family--heading);
+      font-weight: 400;
+      line-height: 1.2;
+    }
+    h1 { font-size: var(--wp--preset--font-size--xx-large); line-height: 1.15; }
+    h2 { font-size: var(--wp--preset--font-size--x-large); }
+
+    a:where(:not(.wp-element-button)) {
+      color: var(--wp--preset--color--accent);
+      font-family: var(--wp--preset--font-family--heading);
+      font-size: var(--wp--preset--font-size--medium);
+      text-decoration: underline;
+    }
+    a:where(:not(.wp-element-button)):hover { text-decoration: none; }
+
+    /* Layout helpers */
+    .wp-site-blocks { padding-top: var(--wp--style--root--padding-top); padding-bottom: var(--wp--style--root--padding-bottom); }
+    .has-global-padding { padding-right: var(--wp--style--root--padding-right); padding-left: var(--wp--style--root--padding-left); }
+    .alignfull { width: 100%; }
+    .alignwide { max-width: var(--wp--style--global--wide-size); margin-left: auto; margin-right: auto; }
+    .has-text-align-center { text-align: center; }
+    .is-layout-constrained > :where(:not(.alignfull)) { max-width: var(--wp--style--global--content-size); margin-left: auto !important; margin-right: auto !important; }
+    .is-layout-flex { display: flex; flex-wrap: wrap; align-items: center; }
+    .is-content-justification-center { justify-content: center; }
+    .is-content-justification-space-between { justify-content: space-between; }
+    .is-vertical { flex-direction: column; }
+
+    /* Site logo */
+    .wp-block-site-logo { box-sizing: border-box; line-height: 0; }
+    .wp-block-site-logo a { display: inline-block; line-height: 0; }
+    .wp-block-site-logo.is-default-size img { height: auto; width: 120px; }
+    .wp-block-site-logo.aligncenter { margin-left: auto; margin-right: auto; text-align: center; }
+
+    /* Site title */
+    .wp-block-site-title a { color: inherit; font-family: inherit; font-size: inherit; text-decoration: inherit; }
+
+    /* Navigation */
+    .wp-block-navigation { position: relative; font-size: var(--wp--preset--font-size--x-large); font-weight: 600; }
+    .wp-block-navigation ul { list-style: none; margin: 0; padding: 0; }
+    .wp-block-navigation .wp-block-navigation-item { display: flex; align-items: center; }
+    .wp-block-navigation a { text-decoration: none; color: inherit; }
+    .wp-block-navigation a:hover { color: var(--wp--preset--color--accent); text-decoration: underline; }
+    .wp-block-navigation__container { display: flex; flex-wrap: wrap; align-items: center; list-style: none; margin: 0; padding: 0; gap: 1.5rem; }
+    .wp-block-navigation__responsive-container-open { display: none; }
+
+    /* Images */
+    img:where([class*=wp-image-]) { height: auto; max-width: 100%; }
+
+    /* Spacer */
+    .wp-block-spacer { clear: both; }
+
+    /* Colored backgrounds */
+    .has-secondary-background-color { background-color: var(--wp--preset--color--secondary) !important; }
+    .has-primary-background-color  { background-color: var(--wp--preset--color--primary) !important; }
+
+    /* Contact Form 7 */
+    .wpcf7-form p { margin-bottom: 1em; }
+    .wpcf7-form label { display: block; margin-bottom: 0.25em; font-family: var(--wp--preset--font-family--heading); }
+    .wpcf7-form input[type="text"],
+    .wpcf7-form input[type="email"],
+    .wpcf7-form textarea {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      box-sizing: border-box;
+      border: 1px solid color-mix(in srgb, var(--wp--preset--color--primary-text) 20%, transparent);
+      border-radius: 0.375rem;
+      font-family: var(--wp--preset--font-family--body);
+      font-size: var(--wp--preset--font-size--medium);
+    }
+    .wpcf7-form input[type="submit"] {
+      background-color: var(--wp--preset--color--accent);
+      color: var(--wp--preset--color--accent-text);
+      border: none;
+      border-radius: 0.33rem;
+      padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+      font-size: var(--wp--preset--font-size--normal);
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .hidden-fields-container { display: none; }
+    .akismet-fields-container { display: none !important; }
+  </style>
+
+  <!-- Minimal stubs required by Contact Form 7 -->
+  <script>window.wp = { hooks: {}, i18n: { __: (s) => s } };</script>
+  <!-- Contact Form 7 validation -->
+  <script src="./assets/index.js" id="swv-js"></script>
+  <script>
+    var wpcf7 = {
+      "api": {
+        "root": "https://resistancebootcamp.us/wp-json/",
+        "namespace": "contact-form-7/v1"
+      },
+      "cached": 1
+    };
+  </script>
+  <script src="./assets/index(1).js" id="contact-form-7-js"></script>
+</head>
+
+<body class="wp-theme-twentytwentyfour">
+
+  <!-- ============================================================
+       DISCLAIMER — not the real site
+       ============================================================ -->
+  <div style="background:#cc0000; color:#fff; text-align:center; padding:18px 24px; font-size:1.15rem; font-weight:bold; line-height:1.5; position:relative; z-index:9999;">
+    &#9888; THIS IS NOT THE REAL WEBSITE. This is an unofficial HTML clone for demonstration purposes only.
+    <br>
+    Visit the real site at
+    <a href="https://resistancebootcamp.us/" target="_blank" rel="noopener noreferrer"
+       style="color:#ffe066; text-decoration:underline;">
+      https://resistancebootcamp.us/
+    </a>
+  </div>
+
+  <!-- ============================================================
+       SITE HEADER
+       ============================================================ -->
+  <div class="wp-site-blocks">
+    <header class="wp-block-template-part">
+      <div class="wp-block-group alignfull has-global-padding is-layout-constrained wp-block-group-is-layout-constrained"
+           style="padding-top:var(--wp--preset--spacing--30); padding-bottom:var(--wp--preset--spacing--30);">
+        <div class="wp-block-group alignwide is-content-justification-space-between is-layout-flex wp-block-group-is-layout-flex">
+
+          <!-- Logo + site title -->
+          <div class="wp-block-group is-layout-flex wp-block-group-is-layout-flex">
+            <div class="is-default-size wp-block-site-logo">
+              <a href="index.html" rel="home">
+                <img
+                  width="2194" height="2560"
+                  src="./assets/Bootcamp-2.0-1-scaled.png"
+                  class="custom-logo"
+                  alt="Resistance Bootcamp 2.0"
+                  decoding="async"
+                  fetchpriority="high"
+                >
+              </a>
+            </div>
+            <h1 class="wp-block-site-title">
+              <a href="index.html" rel="home">Resistance Bootcamp 2.0</a>
+            </h1>
+          </div>
+
+          <!-- Header nav -->
+          <nav class="wp-block-navigation is-content-justification-right is-layout-flex" aria-label="Main Menu">
+            <ul class="wp-block-navigation__container">
+              <li class="wp-block-navigation-item wp-block-navigation-link">
+                <a class="wp-block-navigation-item__content" href="contact_us.html" aria-current="page">
+                  <span class="wp-block-navigation-item__label">Contact Us</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================================
+         MAIN CONTENT
+         ============================================================ -->
+    <main class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
+      <div class="wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained">
+
+        <div style="height:var(--wp--preset--spacing--50)" aria-hidden="true" class="wp-block-spacer"></div>
+
+        <h1 class="has-text-align-center wp-block-post-title">Contact Us</h1>
+
+        <div style="height:var(--wp--preset--spacing--30)" aria-hidden="true" class="wp-block-spacer"></div>
+
+      </div>
+
+      <div class="entry-content wp-block-post-content has-global-padding is-layout-constrained">
+
+        <!-- Contact Form 7 -->
+        <div class="wpcf7 js" id="wpcf7-f199-p196-o1" lang="en-US" dir="ltr" data-wpcf7-id="199">
+          <div class="screen-reader-response">
+            <p role="status" aria-live="polite" aria-atomic="true"></p>
+            <ul></ul>
+          </div>
+          <form
+            action="https://resistancebootcamp.us/contact-us/#wpcf7-f199-p196-o1"
+            method="post"
+            class="wpcf7-form init"
+            aria-label="Contact form"
+            novalidate
+            data-status="init"
+          >
+            <!-- Hidden CF7 fields (required for form submission) -->
+            <fieldset class="hidden-fields-container">
+              <input type="hidden" name="_wpcf7"                  value="199">
+              <input type="hidden" name="_wpcf7_version"          value="6.1.5">
+              <input type="hidden" name="_wpcf7_locale"           value="en_US">
+              <input type="hidden" name="_wpcf7_unit_tag"         value="wpcf7-f199-p196-o1">
+              <input type="hidden" name="_wpcf7_container_post"   value="196">
+              <input type="hidden" name="_wpcf7_posted_data_hash" value="">
+            </fieldset>
+
+            <p>
+              <label>Your name<br>
+                <span class="wpcf7-form-control-wrap" data-name="your-name">
+                  <input type="text" name="your-name" size="40" maxlength="400"
+                    class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+                    autocomplete="name" aria-required="true" aria-invalid="false" value="">
+                </span>
+              </label>
+            </p>
+
+            <p>
+              <label>Your email<br>
+                <span class="wpcf7-form-control-wrap" data-name="your-email">
+                  <input type="email" name="your-email" size="40" maxlength="400"
+                    class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email"
+                    autocomplete="email" aria-required="true" aria-invalid="false" value="">
+                </span>
+              </label>
+            </p>
+
+            <p>
+              <label>Subject<br>
+                <span class="wpcf7-form-control-wrap" data-name="your-subject">
+                  <input type="text" name="your-subject" size="40" maxlength="400"
+                    class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+                    aria-required="true" aria-invalid="false" value="">
+                </span>
+              </label>
+            </p>
+
+            <p>
+              <label>Your message (optional)<br>
+                <span class="wpcf7-form-control-wrap" data-name="your-message">
+                  <textarea name="your-message" cols="40" rows="10" maxlength="2000"
+                    class="wpcf7-form-control wpcf7-textarea"
+                    aria-invalid="false"></textarea>
+                </span>
+              </label>
+            </p>
+
+            <p>
+              <input type="submit" value="Submit"
+                class="wpcf7-form-control wpcf7-submit has-spinner">
+              <span class="wpcf7-spinner"></span>
+            </p>
+
+            <div class="wpcf7-response-output" aria-hidden="true"></div>
+          </form>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="wp-block-template-part">
+      <div class="wp-block-group alignwide has-background has-secondary-background-color has-global-padding is-layout-constrained wp-block-group-is-layout-constrained"
+           style="padding-top:var(--wp--preset--spacing--50); padding-bottom:var(--wp--preset--spacing--50);">
+        <div class="wp-block-group alignwide is-vertical is-content-justification-center is-layout-flex wp-block-group-is-layout-flex">
+
+          <!-- Logo -->
+          <div class="is-default-size aligncenter wp-block-site-logo">
+            <a href="index.html" rel="home">
+              <img
+                width="2194" height="2560"
+                src="./assets/Bootcamp-2.0-1-scaled.png"
+                class="custom-logo"
+                alt="Resistance Bootcamp 2.0"
+                decoding="async"
+              >
+            </a>
+          </div>
+
+          <!-- Footer nav -->
+          <nav class="wp-block-navigation is-content-justification-center is-layout-flex items-justified-center" aria-label="Footer Menu">
+            <ul class="wp-block-navigation__container">
+              <li class="wp-block-navigation-item wp-block-navigation-link">
+                <a class="wp-block-navigation-item__content" href="contact_us.html" aria-current="page">
+                  <span class="wp-block-navigation-item__label">Contact Us</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /.wp-site-blocks -->
+
+</body>
+</html>
