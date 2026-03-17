@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resistance Bootcamp 2.0</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      color: #333;
+      background: #fff;
+    }
+
+    /* --- Disclaimer Banner --- */
+    #disclaimer {
+      background: #cc0000;
+      color: #fff;
+      text-align: center;
+      padding: 18px 24px;
+      font-size: 1.15rem;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+
+    #disclaimer a {
+      color: #ffe066;
+      text-decoration: underline;
+    }
+
+    #disclaimer a:hover {
+      color: #fff;
+    }
+
+    /* --- Site Header --- */
+    header {
+      background: #fff;
+      border-bottom: 2px solid #eee;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #1a1a2e;
+      letter-spacing: 1px;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: #1a1a2e;
+      font-size: 1rem;
+      font-weight: bold;
+      border: 2px solid #1a1a2e;
+      padding: 8px 18px;
+      border-radius: 4px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    header nav a:hover {
+      background: #1a1a2e;
+      color: #fff;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      background: #1a1a2e;
+      color: #fff;
+      text-align: center;
+      padding: 60px 24px 40px;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      font-style: italic;
+    }
+
+    .hero img {
+      max-width: 100%;
+      width: 900px;
+      border-radius: 4px;
+    }
+
+    /* --- Stats Section --- */
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0;
+      background: #f4f4f4;
+      border-top: 4px solid #1a1a2e;
+      border-bottom: 4px solid #1a1a2e;
+    }
+
+    .stat {
+      flex: 1 1 200px;
+      text-align: center;
+      padding: 36px 24px;
+      border-right: 2px solid #ddd;
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat h2 {
+      font-size: 1.6rem;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+
+    /* --- About Section --- */
+    .about {
+      max-width: 820px;
+      margin: 60px auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    /* --- Registration Section --- */
+    .registration {
+      background: #1a1a2e;
+      color: #fff;
+      text-align: center;
+      padding: 60px 24px;
+    }
+
+    .registration h2 {
+      font-size: 2rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .registration p {
+      font-size: 1.1rem;
+      max-width: 640px;
+      margin: 0 auto 16px;
+      line-height: 1.7;
+    }
+
+    .registration a.btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: #ffe066;
+      color: #1a1a2e;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .registration a.btn:hover {
+      background: #ffd700;
+    }
+
+    /* --- Donate Section --- */
+    .donate {
+      max-width: 820px;
+      margin: 60px auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .donate h2 {
+      font-size: 1.8rem;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+    }
+
+    .donate p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 12px;
+    }
+
+    .donate a.btn {
+      display: inline-block;
+      margin-top: 16px;
+      background: #cc0000;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .donate a.btn:hover {
+      background: #aa0000;
+    }
+
+    /* --- Sponsor Section --- */
+    .sponsor {
+      background: #f4f4f4;
+      border-top: 4px solid #1a1a2e;
+      padding: 50px 24px;
+      text-align: center;
+    }
+
+    .sponsor h2 {
+      font-size: 1.5rem;
+      color: #1a1a2e;
+      margin-bottom: 16px;
+    }
+
+    .sponsor p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #444;
+      max-width: 640px;
+      margin: 0 auto 10px;
+    }
+
+    .sponsor a {
+      color: #cc0000;
+    }
+
+    /* --- Footer --- */
+    footer {
+      background: #1a1a2e;
+      color: #ccc;
+      text-align: center;
+      padding: 32px 24px;
+    }
+
+    footer .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    footer nav {
+      margin-top: 10px;
+    }
+
+    footer nav a {
+      color: #ffe066;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    footer nav a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.4rem; }
+      header { flex-direction: column; gap: 14px; }
+      .stat { flex: 1 1 100%; border-right: none; border-bottom: 2px solid #ddd; }
+      .stat:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Disclaimer Banner -->
+  <div id="disclaimer">
+    &#9888; THIS IS NOT THE REAL WEBSITE. This is an unofficial HTML clone for demonstration purposes only.
+    <br>
+    Visit the real site at <a href="https://resistancebootcamp.us/" target="_blank" rel="noopener noreferrer">https://resistancebootcamp.us/</a>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Resistance Bootcamp 2.0</div>
+    <nav>
+      <a href="https://resistancebootcamp.us/#contact" target="_blank" rel="noopener noreferrer">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>"Train Like Democracy Depends on It&hellip;"</h1>
+    <img
+      src="https://resistancebootcamp.us/wp-content/uploads/Bootcamp-2.0_horizontal-2-1024x541.png"
+      alt="Resistance Bootcamp 2.0 banner"
+    />
+  </section>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="stat"><h2>Two Days.</h2></div>
+    <div class="stat"><h2>Sixteen Sessions.</h2></div>
+    <div class="stat"><h2>Two Hundred Activists.</h2></div>
+    <div class="stat"><h2>One Mass Movement of Nonviolent Resistance.</h2></div>
+  </section>
+
+  <!-- About -->
+  <section class="about">
+    <p>
+      Resistance Bootcamp 2.0 is a <strong>two-day intensive training for organizers and activists</strong>,
+      organized by the Portland Metro Indivisible Network and co-sponsors. The bootcamp emphasizes
+      <strong>movement resilience and sustainability</strong> through affinity groups, leadership development,
+      and conflict resolution frameworks.
+    </p>
+    <br>
+    <p>
+      Featuring <strong>sixteen interactive hands-on sessions</strong>, the curriculum serves both newcomers
+      and experienced advocates with practical tools for grassroots organizing. Trainers focus on peer
+      education through teach-back exercises, aiming to expand training throughout Oregon.
+    </p>
+  </section>
+
+  <!-- Registration -->
+  <section class="registration">
+    <h2>Registration Coming Soon!</h2>
+    <p>A minimum $40 donation is required to register.</p>
+    <p>
+      <strong>Scholarships are available to all who apply.</strong>
+      No one will be turned away for lack of funds.
+    </p>
+    <a
+      class="btn"
+      href="https://forms.gle/mLyb26Pu6tSjdYN59"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Join the Email List
+    </a>
+  </section>
+
+  <!-- Donate -->
+  <section class="donate">
+    <h2>Help Fuel the Fight for Democracy</h2>
+    <p>
+      Your donation directly supports training, materials, and scholarships so every activist
+      who wants to attend can participate.
+    </p>
+    <a
+      class="btn"
+      href="https://resistancebootcamp.us/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Click to Donate (via Real Site)
+    </a>
+  </section>
+
+  <!-- Sponsor -->
+  <section class="sponsor">
+    <h2>Become a Founding Sponsor</h2>
+    <p>
+      Groups and businesses donating before <strong>April 1, 2026</strong> will be featured
+      as <strong>Founding Sponsors</strong>.
+    </p>
+    <p>
+      Contact us at
+      <a href="mailto:resistancebootcamp2026@gmail.com">resistancebootcamp2026@gmail.com</a>
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="logo">Resistance Bootcamp 2.0</div>
+    <p>Train Like Democracy Depends on It</p>
+    <nav>
+      <a href="https://resistancebootcamp.us/#contact" target="_blank" rel="noopener noreferrer">Contact Us</a>
+    </nav>
+  </footer>
+
+</body>
+</html>
